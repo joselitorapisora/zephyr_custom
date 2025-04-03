@@ -1,0 +1,34 @@
+/*
+ * Copyright (c) 2025 Joselito Rapisora
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&sercom1 {  /* Choose the correct SERCOM instance */
+    compatible = "atmel,sam0-spi";
+    status = "okay";
+    pinctrl-0 = <&sercom1_spi_default>;
+    pinctrl-names = "default";
+};
+
+/ {
+    ili9341_gpios: ili9341_gpios {
+        compatible = "gpio-keys";  /* Generic container */
+        
+        dc-gpio {
+            gpios = <&porta 8 GPIO_ACTIVE_HIGH>;
+        };
+
+        rst-gpio {
+            gpios = <&porta 9 GPIO_ACTIVE_LOW>;
+        };
+
+        cs-gpio {
+            gpios = <&portb 5 GPIO_ACTIVE_LOW>;
+        };
+
+        bl-gpio {
+            gpios = <&porta 19 GPIO_ACTIVE_HIGH>;
+        };        
+    };
+};

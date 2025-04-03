@@ -1,0 +1,26 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Copyright (c) 2025 Joselito Rapisora
+ */
+
+ #include <dt-bindings/pinctrl/same51j-pinctrl.h>
+
+/{
+	aliases {
+		led1 = &led1;
+		led2 = &led2;
+	};
+
+	myleds {
+		compatible = "gpio-leds";
+		led1: led_1 {
+			gpios = <&portb 6 GPIO_ACTIVE_HIGH>;
+			label = "LED1";
+		};
+		led2: led_2 {
+			gpios = <&portb 7 GPIO_ACTIVE_HIGH>;
+			label = "LED2";
+		};
+	};
+};
